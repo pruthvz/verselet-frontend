@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Switcher from "./Switcher";
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -10,19 +11,27 @@ function Navbar() {
       <div class="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" class="flex items-center">
           {/* <img src="#" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> */}
-          <span class="self-center text-xl  whitespace-nowrap font-extrabold leading-none tracking-tight text-purple-600 hover:text-purple-700 md:text-5xl lg:text-5xl dark:text-white">
+          <span class="self-center text-xl  whitespace-nowrap font-extrabold leading-none tracking-tight text-purple-600 hover:text-purple-700 md:text-5xl lg:text-3xl dark:text-white">
             Verselet
           </span>
         </Link>
         <div class="flex md:order-2">
           <Link
+            to="/signin"
+            type="button"
+            class=" bg-transparent border px-6 border-purple-500 text-purple-500 hover:bg-purple-800 hover:text-white focus:bg-purple-600 focus:text-white focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm  py-2.5 text-center mr-3 md:mr-0 dark:text-white dark:bg-transparent dark:hover:bg-purple-700 dark:focus:bg-purple-600 dark:focus:ring-purple-800"
+          >
+            Sign in
+          </Link>
+          <Link
             to="/signup"
             type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="md:ml-3 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-8 py-2.5 text-center mr-3 md:mr-0 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800"
           >
-            Signup
+            Sign up
           </Link>
-          <button
+          <Switcher />
+          {/* <button
             data-collapse-toggle="navbar-cta"
             onClick={handleNavToggle}
             type="button"
@@ -44,9 +53,9 @@ function Navbar() {
                 clip-rule="evenodd"
               ></path>
             </svg>
-          </button>
+          </button> */}
         </div>
-        <div
+        {/* <div
           className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
             isNavOpen ? "block" : "hidden"
           }`}
@@ -79,7 +88,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
