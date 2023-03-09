@@ -8,19 +8,37 @@ import Signin from "./pages/Auth/Signin";
 import Signup from "./pages/Auth/Signup";
 // homepage
 import Homepage from "./pages/Homepage/Home";
+import SideNavbar from "./pages/Homepage/SideNavbar";
+import Profile from "./pages/Homepage/Profile";
+import Code from "./pages/Homepage/Codepage/CodeEditor";
+import Notifications from "./pages/Homepage/Notifications";
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(true);
   return (
     <Router>
       <div>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Homepage />} />
-        </Routes>
+        {loggedIn ? (
+          <>
+            <SideNavbar />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/code" element={<Code />} />
+              <Route path="/notifications" element={<Notifications />} />
+            </Routes>
+          </>
+        ) : (
+          <>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/signin" element={<Signin />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
+          </>
+        )}
         <Footer />
       </div>
     </Router>
