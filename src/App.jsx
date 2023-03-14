@@ -12,6 +12,7 @@ import SideNavbar from "./pages/Homepage/SideNavbar";
 import Profile from "./pages/Homepage/Profile";
 import Code from "./pages/Homepage/Codepage/CodeEditor";
 import Notifications from "./pages/Homepage/Notifications";
+import Settings from "./pages/Settings";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
@@ -26,6 +27,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/code" element={<Code />} />
               <Route path="/notifications" element={<Notifications />} />
+              <Route path="/settings" element={<Settings />} />
             </Routes>
           </>
         ) : (
